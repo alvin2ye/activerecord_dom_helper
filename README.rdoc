@@ -1,0 +1,17 @@
+== Example
+
+>> Book.first.dom_id
+=> "book-1"
+>> Book.new.dom_id
+=> "book-new"
+>> Book.new.dom_id('xx')
+=> "xx-book-new"
+>> Book.new.dom_class('xx')
+=> "xx-book"
+>> Book.new.dom_class
+=> "book"
+
+== Reference
+http://topfunky.net/svn/plugins/dom_id/
+
+Copyright (c) 2009 [alvin2ye], released under the MIT license
