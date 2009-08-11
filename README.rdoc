@@ -1,15 +1,14 @@
 == Example
 
->> Book.first.dom_id
-=> "book-1"
->> Book.new.dom_id
-=> "book-new"
->> Book.new.dom_id('xx')
-=> "xx-book-new"
->> Book.new.dom_class('xx')
-=> "xx-book"
->> Book.new.dom_class
-=> "book"
+  test "dom_id" do
+    assert_equal("book-123", Book.new.dom_id)
+    assert_equal("car-new", Car.new.dom_id)
+  end
+
+  test "dom_class" do
+    assert_equal("book", Book.new.dom_class)
+    assert_equal("new-book", Book.new.dom_class("new"))
+  end
 
 == Reference
 http://topfunky.net/svn/plugins/dom_id/

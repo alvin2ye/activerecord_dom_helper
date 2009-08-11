@@ -1,4 +1,17 @@
 require 'test_helper'
+ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :dbfile => "dom_helper_test.sqlite3")
+ActiveRecord::Migration.verbose = false
+ActiveRecord::Schema.define(:version => 1) do
+  create_table :books, :force => true do |t|
+    t.string :name
+  end
+  
+  create_table :cars, :force => true do |t|
+    t.string :name
+  end
+  
+end
+ActiveRecord::Migration.verbose = true
 
 class Book < ActiveRecord::Base
   def new_record?
@@ -24,5 +37,6 @@ class ActiverecordDomHelperTest < ActiveSupport::TestCase
 
   test "dom_class" do
     assert_equal("book", Book.new.dom_class)
+    assert_equal("new-book", Book.new.dom_class("new"))
   end
 end
